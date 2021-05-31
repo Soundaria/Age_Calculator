@@ -115,7 +115,13 @@
                 nextday = (age_year()+1)*365.245-totaldays();
                 return Math.floor(nextday);
             }
-            document.getElementById("result").innerHTML="Hey beautiful..❤️<br />Age: "+age_year()+" years "+age_month()+" months "+age_date()+" days!!<br />Next birthday: "+nextbirthday()+" days<br />Days: "+totaldays()+" days";
+            function random(){
+                sentence=['You are amazing!!','Let magic adore you....','You will be the king..,','Spread love and happiness..!','You are my WoW person..'];
+                var index=Math.floor(Math.random()*(sentence.length));
+                return sentence[index]
+            } 
+
+            document.getElementById("result").innerHTML="Hey beautiful..❤️<br />Your birthdate: "+fbirthday+"<br />Age: "+age_year()+" years "+age_month()+" months "+age_date()+" days!!<br />Next birthday: "+nextbirthday()+" days<br />Days: "+totaldays()+" days<br /><br />Message For You:<br />      "+random();
             
         
         }

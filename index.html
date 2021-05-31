@@ -53,6 +53,10 @@
             var current_day = current_date.getDate();
             var current_month = current_date.getMonth();
             var current_year = current_date.getFullYear();
+            var fbirthday = (birthday.getMonth()+1)+"/"+birthday.getDate()+"/"+birthday.getFullYear();
+            var birthday1 = new Date(fbirthday);
+            var ftoday = (current_date.getMonth()+1)+"/"+current_date.getDate()+"/"+current_date.getFullYear();
+            var today = new Date(ftoday);
             function age_year(){
                 year=current_year-birth_year;
                 year-=1;
@@ -102,7 +106,16 @@
                     return date;
                 }
             }
-            document.getElementById("result").innerHTML="Hey beautiful..❤️<br />You are "+age_year()+" years "+age_month()+" months "+age_date()+" days old !!";
+            function totaldays(){
+                one_day=1000*60*60*24;
+                days=Math.round(Math.abs(today-birthday1)/one_day);
+                return days;
+            }
+            function nextbirthday(){
+                nextday = (age_year()+1)*365.245-totaldays();
+                return Math.floor(nextday);
+            }
+            document.getElementById("result").innerHTML="Hey beautiful..❤️<br />Age: "+age_year()+" years "+age_month()+" months "+age_date()+" days!!<br />Next birthday: "+nextbirthday()+" days<br />Days: "+totaldays()+" days";
             
         
         }
